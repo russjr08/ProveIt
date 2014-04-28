@@ -7,6 +7,7 @@
 //
 
 #include "Game.h"
+#include "SoundManager.h"
 #include <iostream>
 
 #include <SFML/Audio.hpp>
@@ -25,8 +26,9 @@ vector<Entity> entities;
 sf::View camera(sf::FloatRect(screen_size.x, screen_size.y, screen_size.x/2, screen_size.y/2));
 sf::Vector2f camera_pos;
 
+SoundManager sound;
 
-std::map<string, sf::Music*> game_music;
+
 
 
 Game::Game(string title){
@@ -41,18 +43,16 @@ Game::Game(string title){
     entities.push_back(Entity("res/player/Robot.png"));
     player = &entities[0];
     window.setFramerateLimit(60);
-//    if(!bg_music.openFromFile("res/testing-resource/audio/music/new_back_music.wav")){
-//        printf("ERROR: Could not open background music file!\n");
-//    }else{
-//        bg_music.setVolume(50);
-//        bg_music.setLoop(true);
-//        bg_music.play();
-//    }
-    game_music["background"] = new sf::Music;
+
+	sound.addMusic("background", "res/testing-resource/audio/music/new_back_music.wav");
+	sound.playMusic("background");
+
+    //game_music["background"] = new sf::Music;
     
-    game_music["background"]->openFromFile("res/testing-resource/audio/music/new_back_music.wav");
-    game_music["background"]->setVolume(25);
-    game_music["background"]->play();
+    //game_music["background"]->openFromFile("res/testing-resource/audio/music/new_back_music.wav");
+    //game_music["background"]->setVolume(25);
+    //game_music["background"]->play();
+
     
 //    game_music["old_background"] = new sf::Music;
 //    game_music["old_background"]->openFromFile("res/testing-resource/audio/music/back_music.wav");
