@@ -37,12 +37,12 @@ void SoundManager::playMusic(string name){
 	game_music[name]->play();
 }
 
-void SoundManager::disposeAudio(string name){
+//void SoundManager::disposeAudio(string name){
 	// Verify that an object actually exists the location... Then delete it.
-	if (game_audio[name] != NULL){
-		delete game_audio[name];
-	}
-	if (game_music[name] != NULL){
-		delete game_audio[name];
-	}
-}
+	//if (game_audio[name] != NULL){
+	//	delete game_audio[name];
+	//}
+	//if (game_music[name] != NULL){
+	//	delete game_audio[name];
+	//}
+//}

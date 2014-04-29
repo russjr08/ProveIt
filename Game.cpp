@@ -38,12 +38,14 @@ Game::Game(string title){
     window.create(sf::VideoMode(screen_size.x, screen_size.y), title, sf::Style::Close|sf::Style::Titlebar);
     
 	// Initialize the texture by loading it from a file (Temporary texture)
-    bg_texture.loadFromFile("res/testing-resource/bg/Galaxy.jpg");
+    bg_texture.loadFromFile("res/bg/Level1.png");
     bg_texture.setRepeated(true);
     bg.setTexture(bg_texture);
+	bg.setTextureRect(sf::IntRect(800, 600, 800, 600));
+
     bg.setPosition(0, 0);
 	// Upscale the background by a factor of 1.2 on the X axis.
-    bg.scale(1.2, 1);
+    bg.scale(5, 5);
     
 	// Adds a new Entity to the entities array, with the following sprite.
     entities.push_back(Entity("res/player/Robot.png"));
