@@ -20,6 +20,8 @@ public:
     sf::Vector2f position;
     sf::Vector2f entity_size;
 
+	std::vector<Entity> sub_entities;
+
     
     Entity(std::string);
     
