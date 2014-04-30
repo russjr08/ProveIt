@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 KronosAD. All rights reserved.
 //
 
+#ifndef GAME_H
+#define GAME_H
 
 #pragma once
 
@@ -37,3 +39,5 @@ public:
     
     
 };
+
+#endif /* GAME_H */

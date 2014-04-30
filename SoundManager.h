@@ -1,3 +1,6 @@
+#ifndef SOUNDMANAGER_H
+#define SOUNDMANAGER_H
+
 #include <SFML/Audio.hpp>
 #include <iostream>
 
@@ -29,3 +32,5 @@ public:
 
 
 };
+
+#endif /* SOUNDMANAGER_H */

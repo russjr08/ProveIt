@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 KronosAD. All rights reserved.
 //
 
+#ifndef ENTITY_H
+#define ENTITY_H
 
 #pragma once
 
@@ -36,3 +38,5 @@ public:
     
     
 };
+
+#endif /* ENTITY_H */

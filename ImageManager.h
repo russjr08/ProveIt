@@ -1,3 +1,6 @@
+#ifndef IMAGEMANAGER_H
+#define IMAGEMANAGER_H
+
 #include <SFML/Graphics.hpp>
 #include <string>
 
@@ -13,3 +16,5 @@ public:
 
 
 };
+
+#endif /* IMAGEMANAGER_H */
