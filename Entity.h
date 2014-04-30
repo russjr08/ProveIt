@@ -10,6 +10,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "Game.h"
 
 
 class Entity {
@@ -22,8 +23,10 @@ public:
 
 	std::vector<Entity> sub_entities;
 
+	Game* game;
+
     
-    Entity(std::string);
+    Entity(std::string, Game*);
     
     void draw(sf::RenderWindow&);
     void update();

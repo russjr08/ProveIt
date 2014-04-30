@@ -7,7 +7,7 @@
 //
 
 #include "Game.h"
-#include "SoundManager.h"
+#include "Player.h"
 #include <iostream>
 
 #include <SFML/Audio.hpp>
@@ -28,7 +28,6 @@ vector<Entity> entities;
 sf::View camera(sf::FloatRect(screen_size.x, screen_size.y, screen_size.x/2, screen_size.y/2));
 sf::Vector2f camera_pos;
 
-SoundManager sound;
 
 
 
@@ -46,9 +45,17 @@ Game::Game(string title){
     bg.setPosition(0, 0);
 	// Upscale the background by a factor of 1.2 on the X axis.
     bg.scale(5, 5);
+
+	// Initialize the ImageManager's texture map.
+	images.addTexture("player", "res/player/Robot.png");
+	images.addTexture("coin", "res/objects/Coin.png");
     
 	// Adds a new Entity to the entities array, with the following sprite.
-    entities.push_back(Entity("res/player/Robot.png"));
+    entities.push_back(Entity("coin", this));
+
+	// Coin entity
+	entities.push_back(Player(this));
+	
 
 	// Assigns the player pointer value to the memory address of the first entity.
     player = &entities[0];
@@ -57,9 +64,9 @@ Game::Game(string title){
     window.setFramerateLimit(60);
 
 	// Use the SoundManager class to add a new sound (Music) to the game music map (Key/Value based)
-	sound.addMusic("background", "res/testing-resource/audio/music/new_back_music.wav");
-	sound.getMusic("background")->setVolume(25);
-	sound.playMusic("background");    
+	sounds.addMusic("background", "res/testing-resource/audio/music/new_back_music.wav");
+	sounds.getMusic("background")->setVolume(25);
+	sounds.playMusic("background");    
 }
 
 // This is called when the game closes. It's job is to make sure all resources are closed properly!
@@ -99,19 +106,19 @@ void Game::update(){
     }
     
 
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
-        player->position.y -= 5;
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
-        player->position.y += 5;
-    }
-    
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-        player->position.x -= 5;
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
-        player->position.x += 5;
-    }
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+		player->position.y -= 5;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+		player->position.y += 5;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+		player->position.x -= 5;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+		player->position.x += 5;
+	}
     
     camera_pos.y = player->position.y + player->entity_size.y - (screen_size.y / 2);
     

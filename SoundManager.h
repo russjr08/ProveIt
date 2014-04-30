@@ -1,5 +1,8 @@
 #include <SFML/Audio.hpp>
 #include <iostream>
+
+#pragma once
+
 using namespace std;
 
 // A class for managing sounds. See SoundManager.cpp for implementation details.

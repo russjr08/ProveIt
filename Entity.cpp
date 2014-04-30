@@ -7,12 +7,12 @@
 //
 
 #include "Entity.h"
+#include "ImageManager.h"
 
-sf::Texture texture;
 
-Entity::Entity(std::string textureFile){
-    texture.loadFromFile(textureFile);
-    sprite.setTexture(texture);
+Entity::Entity(std::string textureKey, Game* game){
+	this->game = game;
+	sprite.setTexture(this->game->images.getImage(textureKey));
     sprite.scale(3, 3);
     position.x = 0;
     position.y = 0;

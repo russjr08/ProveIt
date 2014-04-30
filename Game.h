@@ -11,6 +11,8 @@
 
 
 #include "Entity.h"
+#include "SoundManager.h"
+#include "ImageManager.h"
 
 using namespace std;
 
@@ -19,6 +21,9 @@ class Game {
  
 public:
     Entity* player;
+
+	SoundManager sounds;
+	ImageManager images;
 
     Game(string);
     
